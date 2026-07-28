@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Новая Жизнь · Инвестиционное предложение</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f3f0;
+      color: #1e1e2a;
+      line-height: 1.5;
+      padding: 1.5rem 1rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ===== GRADIENT HEADLINE ===== */
+    .gradient-headline {
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(145deg, #1f3b2c, #5b8c6f, #a6c8b2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .sub-gradient {
+      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      font-weight: 500;
+      background: linear-gradient(135deg, #3c5e4a, #7b9f89);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.2px;
+      margin-bottom: 1.8rem;
+    }
+
+    .badge-chip {
+      display: inline-block;
+      background: #e9f0ec;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1f3b2c;
+      letter-spacing: 0.3px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== CARDS SKILLS / HOVER ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .skill-card {
+      background: #f8faf9;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(160, 190, 175, 0.2);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      background: #ffffff;
+      box-shadow: 0 18px 40px -10px rgba(40, 80, 60, 0.15);
+      border-color: #b6d5c4;
+    }
+
+    .skill-card i {
+      font-size: 2.4rem;
+      color: #2b5e42;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+      background: #dcebe2;
+      padding: 0.6rem;
+      border-radius: 60px;
+      width: 4rem;
+      line-height: 1;
+    }
+
+    .skill-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.5rem 0 0.2rem;
+      color: #1a2e22;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: #3b5a4a;
+      opacity: 0.8;
+    }
+
+    /* ===== HIGHLIGHT BLOCKS (кейсы) ===== */
+    .case-block {
+      background: #f2f7f4;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0 2rem;
+      border-left: 6px solid #2b5e42;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      transition: 0.2s;
+    }
+
+    .case-block:hover {
+      background: #ecf3ef;
+      border-left-color: #1e4631;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .case-item {
+      background: white;
+      padding: 1rem 1.2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .case-item i {
+      color: #2b5e42;
+      font-size: 1.3rem;
+    }
+
+    .badge-percent {
+      background: #1f3b2c;
+      color: white;
+      border-radius: 40px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    /* ===== TAG GRID (инструменты) ===== */
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      justify-content: center;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .tag {
+      background: #eef3f0;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1f3b2c;
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      transition: 0.15s;
+    }
+
+    .tag:hover {
+      background: #d4e4db;
+      border-color: #8eb4a0;
+      transform: scale(1.02);
+    }
+
+    .tag i {
+      margin-right: 0.5rem;
+      color: #2b5e42;
+    }
+
+    /* ===== таблица / схема ===== */
+    .scheme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      background: #fafcfb;
+      border-radius: 2rem;
+      padding: 1.5rem 1.2rem;
+      margin: 2rem 0;
+      border: 1px solid #e3ede7;
+    }
+
+    .scheme-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: white;
+      border-radius: 1.2rem;
+      padding: 0.8rem 0.3rem;
+    }
+
+    .scheme-item strong {
+      font-size: 1.3rem;
+      color: #1f3b2c;
+    }
+
+    .scheme-item span {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* ===== typography & spacing ===== */
+    .stat-highlight {
+      display: inline-block;
+      background: #1f3b2c;
+      color: white;
+      font-weight: 700;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-right: 0.5rem;
+    }
+
+    .price-tag {
+      background: #eef3f0;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #0f2b1d;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem 1.5rem;
+      margin: 1rem 0;
+    }
+
+    hr {
+      margin: 2rem 0 1.5rem;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #d0dfd7, transparent);
+    }
+
+    /* ===== адаптив ===== */
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.8rem 1rem;
+        border-radius: 1.8rem;
+      }
+      .case-block {
+        padding: 1.2rem 1rem;
+      }
+      .skill-card {
+        padding: 1.2rem 0.8rem;
+      }
+      .scheme-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- заголовок градиент -->
+  <div class="badge-chip"><i class="fas fa-leaf" style="margin-right: 8px;"></i> Клубный посёлок · Истра</div>
+  <h1 class="gradient-headline">Новая Жизнь</h1>
+  <div class="sub-gradient">Инвестиционное предложение · доход 40–60%</div>
+
+  <!-- карточки навыков / преимущества -->
+  <div class="card-grid">
+    <div class="skill-card">
+      <i class="fas fa-water"></i>
+      <h4>1,5 км берега</h4>
+      <p>Истринское водохранилище</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-ship"></i>
+      <h4>Яхт-клуб</h4>
+      <p>Шеринговая техника</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-school"></i>
+      <h4>Школа + сад</h4>
+      <p>Своя инфраструктура</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-spa"></i>
+      <h4>SPA & ретрит</h4>
+      <p>Бутик-отель, оранжерея</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-palette"></i>
+      <h4>Мастерские</h4>
+      <p>Творческие пространства</p>
+    </div>
+  </div>
+
+  <!-- Кейс / суть предложения -->
+  <div class="case-block">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+      <h3 style="font-size: 1.6rem; font-weight: 600; color: #1a2e22;"><i class="fas fa-arrow-right" style="color: #2b5e42; margin-right: 10px;"></i>Создать улицу в аренду</h3>
+      <span class="price-tag"><i class="far fa-clock"></i> 18–24 мес · +40–60%</span>
+    </div>
+    <div class="case-grid">
+      <div class="case-item"><i class="fas fa-ruble-sign"></i> 600 000 ₽/сотка</div>
+      <div class="case-item"><i class="fas fa-vector-square"></i> 8–10 соток</div>
+      <div class="case-item"><i class="fas fa-home"></i> Дом «под ключ» <span class="badge-percent">15,5–18,8 млн</span></div>
+      <div class="case-item"><i class="fas fa-calendar-check"></i> Готовность 12.2024 – 03.2025</div>
+    </div>
+    <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.8rem 1.8rem; background: #e7f0ea; border-radius: 3rem; padding: 0.6rem 1.5rem;">
+      <span><i class="fas fa-key" style="color: #1f3b2c;"></i> Аренда 150–250 тыс ₽/мес</span>
+      <span><i class="fas fa-chart-line"></i> Доходность 10–15% годовых</span>
+      <span><i class="fas fa-percent"></i> Управление 20%</span>
+    </div>
+  </div>
+
+  <!-- этапы инвестирования -->
+  <div style="margin: 2rem 0 1.2rem;">
+    <h3 style="font-size: 1.5rem; font-weight: 600; color: #1f3b2c; display: flex; align-items: center; gap: 0.6rem;"><i class="fas fa-list-ul" style="color: #2b5e42;"></i>Этапы инвестирования <span style="font-size: 0.9rem; font-weight: 400; opacity: 0.6;">(5–6 месяцев)</span></h3>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr)); gap: 0.8rem; background: #f9fbfa; border-radius: 2rem; padding: 1.2rem 1.2rem;">
+    <div><span class="stat-highlight">1</span> Выкуп участка <span style="opacity:0.6;">(июнь 2024)</span></div>
+    <div><span class="stat-highlight">2</span> Предоплата 50% домокомплект <span style="opacity:0.6;">(июль)</span></div>
+    <div><span class="stat-highlight">3</span> Монтаж + работы <span style="opacity:0.6;">(сент–нояб)</span></div>
+    <div><span class="stat-highlight">4</span> Доплата 50% <span style="opacity:0.6;">(авг–сент)</span></div>
+    <div><span class="stat-highlight">5</span> Мебель <span style="opacity:0.6;">(окт–нояб)</span></div>
+  </div>
+
+  <!-- сетка тегов (инструменты) -->
+  <div style="margin-top: 2.2rem;">
+    <span style="font-weight: 600; color: #1f3b2c; display: inline-block; margin-bottom: 0.8rem;"><i class="fas fa-tags"></i> Инфраструктура & сервисы</span>
+    <div class="tag-grid">
+      <span class="tag"><i class="fas fa-tree"></i> Беззаборная среда</span>
+      <span class="tag"><i class="fas fa-umbrella-beach"></i> Бали-спейс</span>
+      <span class="tag"><i class="fas fa-dumbbell"></i> Спортплощадки</span>
+      <span class="tag"><i class="fas fa-child"></i> Детский клуб</span>
+      <span class="tag"><i class="fas fa-mountain-sun"></i> Панорамный ресторан</span>
+      <span class="tag"><i class="fas fa-hot-tub"></i> СПА-центр</span>
+      <span class="tag"><i class="fas fa-brush"></i> Творческие мастерские</span>
+      <span class="tag"><i class="fas fa-sailboat"></i> Яхт-клуб</span>
+    </div>
+  </div>
+
+  <!-- дома / модели (кейс) -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 1.5rem; margin: 2.2rem 0 1.8rem;">
+    <div style="background: #f3f7f5; border-radius: 1.8rem; padding: 1rem 1rem 1.2rem; text-align: center; border: 1px solid #dce8e1;">
+      <i class="fas fa-house-chimney" style="font-size: 2.6rem; color: #2b5e42; background: #e2eee7; padding: 0.5rem; border-radius: 60px; width: 4.2rem;"></i>
+      <h4 style="margin: 0.5rem 0 0.1rem;">Охта 95</h4>
+      <p style="font-weight: 600; color: #1f3b2c;">2 спальни</p>
+      <p style="font-size: 1.1rem; font-weight: 700;">8 650 000 ₽</p>
+      <span style="background: #c8ddd2; padding: 0.1rem 1.2rem; border-radius: 30px; font-size: 0.75rem;">Премиум клеёный брус</span>
+    </div>
+    <div style="background: #f3f7f5; border-radius: 1.8rem; padding: 1rem 1rem 1.2rem; text-align: center; border: 1px solid #dce8e1;">
+      <i class="fas fa-house-chimney" style="font-size: 2.6rem; color: #2b5e42; background: #e2eee7; padding: 0.5rem; border-radius: 60px; width: 4.2rem;"></i>
+      <h4 style="margin: 0.5rem 0 0.1rem;">Охта 107</h4>
+      <p style="font-weight: 600; color: #1f3b2c;">3 спальни</p>
+      <p style="font-size: 1.1rem; font-weight: 700;">10 740 000 ₽</p>
+      <span style="background: #c8ddd2; padding: 0.1rem 1.2rem; border-radius: 30px; font-size: 0.75rem;">Премиум клеёный брус</span>
+    </div>
+    <div style="background: #ecf3ef; border-radius: 1.8rem; padding: 1rem 1rem 1.2rem; text-align: center; border: 1px solid #bcd3c6;">
+      <i class="fas fa-couch" style="font-size: 2rem; color: #1f3b2c; background: #d2e3da; padding: 0.5rem; border-radius: 60px; width: 4.2rem;"></i>
+      <h4 style="margin: 0.5rem 0 0.1rem;">Мебель «под тапочки»</h4>
+      <p style="font-weight: 500;">1 – 1,5 млн ₽</p>
+      <span style="background: #b6d0c2; padding: 0.1rem 1rem; border-radius: 30px; font-size: 0.75rem;">Интерьер</span>
+    </div>
+  </div>
+
+  <!-- схема участков + контакт -->
+  <div style="background: #f4f9f6; border-radius: 2rem; padding: 1.5rem 1.5rem; margin: 2rem 0 1.2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <div>
+      <span style="font-weight: 600; color: #1f3b2c;"><i class="fas fa-map-pin"></i> Участки 902…898 · 880…873</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; margin-top: 0.5rem;">
+        <span><i class="fas fa-arrows-left-right"></i> Бионическая планировка</span>
+        <span><i class="fas fa-sun"></i> Закаты, прогулки</span>
+        <span><i class="fas fa-tree"></i> Лесопарковая зона</span>
+      </div>
+    </div>
+    <div style="background: white; border-radius: 3rem; padding: 0.5rem 1.8rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+      <i class="fas fa-user" style="color: #1f3b2c;"></i> Олег Соболев
+      <span style="font-weight: 500; margin-left: 0.5rem;">+7 985 761-30-38</span>
+    </div>
+  </div>
+
+  <!-- ссылки + футер -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem 2rem; border-top: 1px solid #e5eee8; padding-top: 1.8rem; margin-top: 0.8rem;">
+    <a href="#" style="text-decoration: none; color: #1f3b2c; font-weight: 500;"><i class="fas fa-globe"></i> navajeeva.ru</a>
+    <a href="#" style="text-decoration: none; color: #1f3b2c; font-weight: 500;"><i class="fab fa-telegram"></i> @nava_jeeva</a>
+    <a href="#" style="text-decoration: none; color: #1f3b2c; font-weight: 500;"><i class="fab fa-youtube"></i> Новая Жизнь</a>
+    <span style="color: #4f6d5d; font-size: 0.85rem;"><i class="fas fa-info-circle"></i> Данные расчётные, нормально-консервативные</span>
+  </div>
+
+  <div style="font-size: 0.7rem; opacity: 0.4; text-align: center; margin-top: 1.8rem; letter-spacing: 0.3px;">
+    * Приведённые цифры являются расчётными. Рост стоимости земли 80–120%, дома 30–40% при строительной готовности.
+  </div>
+
+</div>
+</body>
+</html>
